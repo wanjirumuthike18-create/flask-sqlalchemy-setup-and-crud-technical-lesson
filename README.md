@@ -737,3 +737,22 @@ class User(db.Model):
 records. We want our app to handle many records though, which would take too
 long to do by hand in the Flask shell. In subsequent lessons, we'll see how to
 add routes to a Flask app to support full CRUD operations.
+
+## My Implementation: Pet Adoption Backend
+
+A Flask app that uses Flask-SQLAlchemy to store pets available for adoption, replacing error-prone spreadsheets.
+
+### Features
+- `Pet` model with `id`, `name`, and `species`
+- Database migrations with Flask-Migrate
+- Create, Read, Update, and Delete operations in Python, with no raw SQL
+
+### Setup
+    pipenv install && pipenv shell
+    cd server
+    export FLASK_APP=app.py
+    flask db upgrade
+    flask shell
+
+### Screenshot
+![CRUD demo](assets/crud-demo.jpg)
