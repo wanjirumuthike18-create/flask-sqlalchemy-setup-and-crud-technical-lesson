@@ -1,21 +1,14 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import MetaData
 
-# contains definitions of tables and associated schema constructs
-metadata = MetaData()
+db = SQLAlchemy()
 
-# create the Flask SQLAlchemy extension
-db = SQLAlchemy(metadata=metadata)
-
-# define a model class by inheriting from db.Model.
-
-
+# Each Pet object = one row in the "pets" table
 class Pet(db.Model):
     __tablename__ = 'pets'
 
-    id = db.Column(db.Integer)
-    name = db.Column(db.String)
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50))
     species = db.Column(db.String)
 
     def __repr__(self):
-        return f'<Pet {self.id}, {self.name}, {self.species}>'
+        return f'<Pet {self.id}: {self.name} ({self.species})>'
